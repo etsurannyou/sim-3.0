@@ -228,7 +228,7 @@ class t6Sim extends theoryClass<theory> implements specificTheoryProps {
       for (let i = this.variables.length - 1; i >= 0; i--)
         while (true) {
           if (this.rho > this.variables[i].cost && this.conditions[i]() && this.milestoneConditions[i]()) {
-            if (this.maxRho + 5 > this.lastPub) {
+            if (this.maxRho + 25 > this.lastPub) {
               this.boughtVars.push({ variable: this.varNames[i], level: this.variables[i].level + 1, cost: this.variables[i].cost, timeStamp: this.t });
             }
             this.rho = subtract(this.rho, this.variables[i].cost);
@@ -256,7 +256,7 @@ class t6Sim extends theoryClass<theory> implements specificTheoryProps {
           }
         if (minCost[1] !== -1 && rawCost[minCost[1]] < this.rho) {
           this.rho = subtract(this.rho, this.variables[minCost[1]].cost);
-          if (this.maxRho + 5 > this.lastPub) {
+          if (this.maxRho + 25 > this.lastPub) {
             this.boughtVars.push({ variable: this.varNames[minCost[1]], level: this.variables[minCost[1]].level + 1, cost: this.variables[minCost[1]].cost, timeStamp: this.t });
           }
           this.variables[minCost[1]].buy();
